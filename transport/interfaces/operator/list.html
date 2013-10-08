@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<h1>J List</h1>
+<div>
+    {% for d in data %}
+    {% if loop.first %}<ol>{% endif %}
+    <li>{{ d.operator_name_en }} - {{d.id}}</li>
+    {% if loop.last %}</ol>{% endif %}
+    {% endfor %}
+</div>
+</body>
+</html>
