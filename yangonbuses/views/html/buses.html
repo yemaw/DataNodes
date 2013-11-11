@@ -1,0 +1,29 @@
+{% extends './templates/admin.html' %}
+
+{% block content %}
+<div>
+    <table class="table table-hover table-striped">
+        <tr>
+            <th>English</th>
+            <th>Myanmar</th>
+            <th colspan="3"></th>
+        </tr>
+    {% for bus in data.buses %}
+        <tr>
+            <td>{{ bus.bus_name_en }}</td>
+            <td>{{ bus.bus_name_my }}</td>
+            <td>
+                <a href="{{meta.url_to_app}}bus_path/{{bus.id}}?bus_path=1" class="btn btn-xs btn-info">Edit Path 1</a>
+                <a href="{{meta.url_to_app}}bus_path/{{bus.id}}?bus_path=2" class="btn btn-xs btn-info">Edit Path 2</a>
+                <a href="{{meta.url_to_app}}bus/{{bus.id}}" class="btn btn-xs btn-info">Edit Bus</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+<div>
+    <a href="{{meta.url_to_app}}bus/" class="btn btn-success pull-right">Create</a>
+</div>
+</body>
+</html>
+{% endblock %}

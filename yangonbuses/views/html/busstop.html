@@ -1,0 +1,33 @@
+{% extends './templates/admin.html' %}
+
+{% block content %}
+<form method="POST" action="">
+    <table class="table">
+        <tr>
+            <td>Busstop Name (English)</td>
+            <td><input type="text" name="busstop_name_en" value="{{data.busstop.busstop_name_en}}" /></td>
+        </tr>
+        <tr>
+            <td>Busstop Name (Myanmar)</td>
+            <td><input type="text" name="busstop_name_my" value="{{data.busstop.busstop_name_my}}" /></td>
+        </tr>
+        <tr>
+            <td>Busstop Longitude</td>
+            <td><input type="text" name="busstop_location_longitude" value="{{data.busstop.busstop_location_longitude}}" /></td>
+        </tr>
+        <tr>
+            <td>Busstop Latitude</td>
+            <td><input type="text" name="busstop_location_latitude" value="{{data.busstop.busstop_location_latitude}}" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="hidden" name="id" value="{{data.busstop.id}}" />
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a href="{{meta.url_to_app}}busstops/" class="btn btn-info">Back</a>
+                <a href="{{meta.url_to_app}}busstop/" class="btn btn-info">New</a>
+            </td>
+        </tr>
+    </table>
+</form>
+{% block end%}

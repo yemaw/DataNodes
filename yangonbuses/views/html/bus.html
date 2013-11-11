@@ -1,0 +1,49 @@
+{% extends './templates/admin.html' %}
+
+{% block content %}
+<form method="POST" action="">
+    <table class="table">
+        <tr>
+            <td>Bus Name (English)</td>
+            <td><input type="text" name="bus_name_en" value="{{data.bus.bus_name_en}}" /></td>
+        </tr>
+        <tr>
+            <td>Bus Name (Myanmar)</td>
+            <td><input type="text" name="bus_name_my" value="{{data.bus.bus_name_my}}" /></td>
+        </tr>
+        <tr>
+            <td>Bus Color</td>
+            <td>
+                <select name="bus_color">
+                    <option value="">- None - </option>
+                    <option value="yellow" {% if (data.bus.bus_color == 'yellow') %}selected{% endif %}>Yellow</option>
+                    <option value="green" {% if (data.bus.bus_color == 'green') %}selected{% endif %}>Green</option>
+                    <option value="red" {% if (data.bus.bus_color == 'red') %}selected{% endif %}>Red</option>
+                    <option value="white" {% if (data.bus.bus_color == 'white') %}selected{% endif %}>White</option>
+                </select>
+
+            </td>
+        </tr>
+        <tr>
+            <td>Operator{{data.bus.operator.id}}</td>
+            <td>
+                <select name="operator">
+                    <option value="">- Operators -</option>
+                    {% for operator in data.operators %}
+                    <option value="{{operator.id}}" {% if (operator.id == data.bus.operator) %}selected{% endif %}>{{ operator.operator_name_en}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="hidden" name="id" value="{{data.bus.id}}" />
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a href="{{meta.url_to_app}}buses/" class="btn btn-info">Cancle</a>
+                <a href="{{meta.url_to_app}}bus/" class="btn btn-info">New</a>
+            </td>
+        </tr>
+    </table>
+</form>
+{% block end%}

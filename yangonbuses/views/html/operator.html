@@ -1,0 +1,24 @@
+{% extends './templates/admin.html' %}
+
+{% block content %}
+<form method="POST" action="">
+    <table class="table">
+        <tr>
+            <td>Operator Name (English)</td>
+            <td><input type="text" name="operator_name_en" value="{{data.operator.operator_name_en}}" /></td>
+        </tr>
+        <tr>
+            <td>Operator Name (Myanmar)</td>
+            <td><input type="text" name="operator_name_my" value="{{data.operator.operator_name_my}}" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="hidden" name="id" value="{{data.operator.id}}" />
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a href="{{meta.url_to_app}}operators/" class="btn btn-info">Back</a>
+            </td>
+        </tr>
+    </table>
+</form>
+{% block end%}

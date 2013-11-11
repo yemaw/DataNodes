@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ meta.title }}</title>
+
+    <link href="/assets/jquery-ui/jquery-ui-1.10.3/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
+    <link href="/assets/bootstrap/bootstrap-3.0.0/css/bootstrap.css" rel="stylesheet" />
+    <link href="/assets/yangonbuses/css/admin.css" rel="stylesheet" />
+
+    <script src="/assets/s"></script>
+    <script src="/assets/jquery/jquery-2.0.3.min.js"></script>
+    <script src="/assets/jquery-ui/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="/assets/bootstrap/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script src="/assets/yangonbuses/js/admin.js"></script>
+
+    {% block head %}
+
+    {% endblock %}
+</head>
+<body>
+
+
+<hgroup>
+
+</hgroup>
+<section class="row">
+    <nav class="col-md-3">
+        <ul>
+            <li><a href="/yangonbuses/admin/buses">Buses</a></li>
+            <li><a href="/yangonbuses/admin/busstops">Busstops</a></li>
+            <li><a href="/yangonbuses/admin/operators">Operators</a></li>
+        </ul>
+    </nav>
+    <article class="col-md-7">
+        <div id="flashes">
+        {% if meta.flashes %}
+            {% for flash in meta.flashes %}
+                <div class="alert alert-{{flash.type}}">{{flash.message}}</div>
+            {% endfor %}
+        {% endif %}
+        </div>
+        {% block content %}{% endblock %}
+    </article>
+</section>
+</body>
+</html>

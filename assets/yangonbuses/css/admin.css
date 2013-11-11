@@ -1,0 +1,6 @@
+body{padding:20px;}
+hgroup{height:120px;}
+
+#autocomplete_busstops{margin:20px 0px;padding:3px 5px;width:100%;}
+#editpath_sortboard{margin:20px 0;padding:10px;list-style-type:none;width:100%;dislay:block;min-height:200px;border:1px solid #117a65;border-radius:5px;}
+#editpath_sortboard li{padding:10px;margin:5px 0px;cursor:move;}

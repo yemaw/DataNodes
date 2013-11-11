@@ -1,0 +1,26 @@
+{% extends './templates/admin.html' %}
+
+{% block content %}
+<div>
+    <table class="table table-hover table-striped">
+        <tr>
+            <th>English</th>
+            <th>Myanmar</th>
+            <th></th>
+        </tr>
+    {% for busstop in data.busstops %}
+        <tr>
+            <td>{{ busstop.busstop_name_en }}</td>
+            <td>{{ busstop.busstop_name_my }}</td>
+            <td><a href="{{meta.url_to_app}}busstop/{{busstop.id}}">Edit</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+
+</div>
+<div>
+    <a href="{{meta.url_to_app}}busstop/" class="btn btn-success pull-right">Create</a>
+</div>
+</body>
+</html>
+{% endblock %}

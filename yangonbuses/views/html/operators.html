@@ -1,0 +1,21 @@
+{% extends './templates/admin.html' %}
+
+{% block content %}
+<div>
+    <table class="table table-hover table-striped">
+        <tr>
+            <th>English</th>
+            <th>Myanmar</th>
+            <th></th>
+        </tr>
+        {% for operator in data.operators %}
+        <tr>
+            <td>{{ operator.operator_name_en }}</td>
+            <td>{{ operator.operator_name_my }}</td>
+            <td><a href="{{meta.url_to_app}}operator/{{operator.id}}">Edit</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<a href="{{meta.url_to_app}}operator/" class="btn btn-success pull-right">Create</a>
+{% endblock %}

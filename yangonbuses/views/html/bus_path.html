@@ -1,0 +1,33 @@
+{% extends './templates/admin.html' %}
+
+{% block content %}
+<form method="POST" action="">
+    <h4>{{data.bus.bus_name_en}} - {{data.bus.bus_name_my}}</h4>
+    <select id="editpath_busselect">
+        <option selected disabled>- Select Busstops -</option>
+        {% for busstop in data.busstops %}
+            <option value="{{busstop.id}}">{{ busstop.busstop_name_my }} = {{ busstop.busstop_name_en }}</option>
+        {% endfor %}
+    </select>&nbsp;
+    <a href="#" id="editpath_addbus">Add</a>
+
+    <input type="text" id="autocomplete_busstops" placeholder="Search Busstop"/>
+
+    <ul id="editpath_sortboard">
+        {% for pathpoint in data.pathpoints %}
+        <li id="{{pathpoint.busstop.id}}" class="ui-state-default">
+            {{pathpoint.busstop.busstop_name_my}} = {{pathpoint.busstop.busstop_name_en}}
+            <a href="#" onclick="remove_busstop(this)" class="editpath_removebusstop btn btn-default btn-xs pull-right"> x </a>
+        </li>
+        {% endfor%}
+    </ul>
+    <input name="busstops_order" style="width:100%" id="busstops_order" type="hidden" value="" />
+    <input name="bus_id" type="hidden" value="{{data.bus.id}}" />
+    <input name="bus_path" type="hidden" value="{{data.bus_path}}" />
+    <div class="pull-right">
+        <input type="submit" value="save" class="btn btn-success" />
+        <a href="{{meta.url_to_app}}buses/" class="btn btn-info">Cancle</a>
+    </div>
+
+</form>
+{% block end%}
